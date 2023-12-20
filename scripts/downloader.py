@@ -34,37 +34,43 @@ def move_file(source, destination):
     except Exception as e:
         return str(e)
 
-# Gradio arayüzü
+# Gradio arayüzünü oluşturma
 def create_interface():
     with gr.Blocks() as app:
         with gr.Tab("File Manager"):
-            with gr.Row():
-                list_button = gr.Button("List Files")
-                directory_input = gr.Textbox(label="Directory", value=".")
+            with gr.Column():
+                with gr.Row():
+                    directory_input = gr.Textbox(label="Directory", value=".")
+                    list_button = gr.Button("List Files")
                 list_output = gr.Textbox(label="Files", multiline=True, interactive=False)
                 list_button.click(list_files, inputs=[directory_input], outputs=[list_output])
 
-            with gr.Row():
-                copy_source = gr.Textbox(label="Copy - Source File")
-                copy_destination = gr.Textbox(label="Copy - Destination File")
-                copy_button = gr.Button("Copy")
+            with gr.Column():
+                with gr.Row():
+                    copy_source = gr.Textbox(label="Copy - Source File")
+                    copy_destination = gr.Textbox(label="Copy - Destination File")
+                    copy_button = gr.Button("Copy")
                 copy_output = gr.Textbox(label="Result", interactive=False)
                 copy_button.click(copy_file, inputs=[copy_source, copy_destination], outputs=[copy_output])
 
-            with gr.Row():
-                delete_file_input = gr.Textbox(label="Delete - File Path")
-                delete_button = gr.Button("Delete")
+            with gr.Column():
+                with gr.Row():
+                    delete_file_input = gr.Textbox(label="Delete - File Path")
+                    delete_button = gr.Button("Delete")
                 delete_output = gr.Textbox(label="Result", interactive=False)
                 delete_button.click(delete_file, inputs=[delete_file_input], outputs=[delete_output])
 
-            with gr.Row():
-                move_source = gr.Textbox(label="Move - Source File")
-                move_destination = gr.Textbox(label="Move - Destination File")
-                move_button = gr.Button("Move")
+            with gr.Column():
+                with gr.Row():
+                    move_source = gr.Textbox(label="Move - Source File")
+                    move_destination = gr.Textbox(label="Move - Destination File")
+                    move_button = gr.Button("Move")
                 move_output = gr.Textbox(label="Result", interactive=False)
                 move_button.click(move_file, inputs=[move_source, move_destination], outputs=[move_output])
+
     return app
 
+# Arayüzü başlatma
 app = create_interface()
 
 if __name__ == "__main__":
