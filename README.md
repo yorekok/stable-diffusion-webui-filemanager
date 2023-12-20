@@ -1,8 +1,6 @@
-# stable-diffusion-webui-file-dl
-A plugin for downloading files directly from the automatic1111 WebUI.
+# stable-diffusion-webui-file-manager-dl
+A plugin for file manager directly from the automatic1111 WebUI.
 
-![Screenshot_20230302_172701](https://user-images.githubusercontent.com/87039059/222490414-a94795f8-3ec2-4095-a349-55e61956cb26.png)
-![Screenshot_20230302_172810](https://user-images.githubusercontent.com/87039059/222490805-7b77cfbc-b711-4ecc-a53d-cd9032f21ec1.png)
 
 ## Supported links
 - MEGA (needs you to install MEGAcmd beforehands)
